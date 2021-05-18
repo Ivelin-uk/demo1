@@ -11,19 +11,7 @@
           class="mx-auto"
         >
           <v-navigation-drawer permanent>
-            <v-list-item>
-              <v-list-item-content>
-                <v-list-item-title class="title">
-                  Application
-                </v-list-item-title>
-                <v-list-item-subtitle>
-                  subtext
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-
-            <v-divider></v-divider>
-
+            
             <v-list
               dense
               nav
@@ -31,6 +19,7 @@
               <v-list-item
                 v-for="item in items"
                 :key="item.title"
+                :to="item.route"
                 link
               >
                 <v-list-item-icon>
@@ -38,7 +27,7 @@
                 </v-list-item-icon>
 
                 <v-list-item-content>
-                  <v-list-item-title><router-link to="/">{{ item.title }}</router-link></v-list-item-title>
+                  <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
@@ -64,9 +53,9 @@
     data () {
       return {
         items: [
-          { title: 'Home', icon: 'mdi-view-dashboard' },
-          { title: 'Patients', icon: 'mdi-image' },
-          { title: 'Storage', icon: 'mdi-help-box' },
+          { title: 'Home', icon: 'mdi-view-dashboard',route: '/' },
+          { title: 'Patients', icon: 'mdi-image', route: '/patients' },
+          { title: 'Storage', icon: 'mdi-help-box', route: '/storage' },
         ],
         right: null,
         drawer: null
