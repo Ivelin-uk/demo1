@@ -1,3 +1,6 @@
 <template>
-    <h1>Work</h1>
+    <div>
+        <app-users></app-users>
+        <app-users></app-users>
+    </div>
 </template>
