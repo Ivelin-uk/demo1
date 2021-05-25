@@ -1,18 +1,30 @@
 <template>
-    <div>
-        <p>First Name</p>
-        <input type="text" v-model="message">
-        <p>{{ message }}</p>
-    </div>
+  <v-form>
+    <v-container>
+      <v-row>
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-text-field
+            v-model="first"
+            label="First Name"
+            filled
+          ></v-text-field>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-form>
 </template>
-
 <script>
-
-export default ({
-    data() {
-        return{
-            message: '',
-        }
-    },
-})
+  export default {
+    props:[
+      'firstName',
+      'lastName'
+    ],
+    data: () => ({
+      first: 'Pesho',
+      last: '',
+    }),
+  }
 </script>
