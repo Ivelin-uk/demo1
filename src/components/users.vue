@@ -2,7 +2,7 @@
     <div>
         <div>
             <h1>Users</h1>
-            <add-button v-on:update="Add" :btn-text="addButtonText"></add-button>  
+            <add-button v-on:update="Add" :btn-text="addButtonText"></add-button>   
         </div>
 
         <div>
@@ -38,30 +38,35 @@
         </div>
 
         <div>
-            <ul id="example-1">
-                <li v-for="(item, index) in names" :key="item" :id="index">
-                    <p><span>{{item.firstName}}</span> <span>{{item.lastName}}</span> <span v-on:click="Delete">Delete</span></p>
-                </li>
-            </ul>
+            <template>
+                <v-card
+                    class="mx-auto"
+                    max-width="400"
+                    tile
+                >
+                    <v-list-item v-for="(item, index) in names" :key="item" :id="index">
+                    <v-list-item-content>
+                        <v-list-item-title> <p><span>{{item.firstName}}</span> <span>{{item.lastName}}</span> <span v-on:click="Delete">Delete</span></p></v-list-item-title>
+                    </v-list-item-content>
+                    </v-list-item>
+                </v-card>
+            </template>
         </div>   
     </div>
 </template>
 
 <script>
 import addButton from '@/components/buttons/add.vue'
+import json from '@/json/data.json'
 
 export default ({
     data(){
         return{
-            names: [
-                { firstName: 'pesho' , lastName: 'Petrov'},
-                { firstName: 'Pesho' , lastName: 'Petrov'},
-                { firstName: 'Ivan'  , lastName: 'Ivanov'},
-                { firstName: 'Gosho' , lastName: 'Goshev'},
-            ],
-            addButtonText: 'Add',
+            names: [],
+            addButtonText: 'Adds',
             first: '',
             last: '',
+            myJson: json,
         }
     },
     components: {
@@ -69,7 +74,6 @@ export default ({
     },
     methods: {
         Add: function() {
-            console.log(this.first + ' ' + this.last);
             let firstName = this.first;
             let lastName = this.last;
             this.names.push({ firstName: firstName,lastName: lastName});
@@ -81,6 +85,12 @@ export default ({
             console.log(id);
             this.names.splice(id, 1);
         },
+    },
+    created() {
+        let arr = this.myJson;
+        for(let i = 0; i < arr.length; i++){
+            this.names.push({ firstName: arr[i].firstName,lastName: arr[i].lastName});
+        }
     }
 })
 </script>

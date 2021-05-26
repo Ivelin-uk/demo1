@@ -1,10 +1,22 @@
 [
     {
-        "firstname": "toto",
-        "lastname": "titi"
+        "firstName": "Ivan",
+        "lastName": "Ivanov",
+        "Age": 10
     },
     {
-        "firstname": "toto2",
-        "lastname": "titi2"
+        "firstName": "Gosho",
+        "lastName": "Stamatov",
+        "Age": 50
+    },
+    {
+        "firstName": "Petrov",
+        "lastName": "Petko",
+        "Age": 25
+    },
+    {
+        "firstName": "Kiko",
+        "lastName": "Pesho",
+        "Age": 19
     }
 ]
