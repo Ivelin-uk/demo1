@@ -23,7 +23,7 @@
       'lastName'
     ],
     data: () => ({
-      first: 'Pesho',
+      first: '',
       last: '',
     }),
   }

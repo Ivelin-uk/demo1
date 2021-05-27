@@ -1,7 +1,7 @@
 <template>
     <v-btn
-    @click="add"
-    color="primary"
+    @click="del"
+    color="secondary"
     elevation="2"
     >{{btnText}}</v-btn>
 </template>
@@ -12,8 +12,8 @@ export default ({
         'btnText',
     ],
     methods:{
-        add: function(){
-            this.$emit('add');
+        del: function(){
+            this.$emit('del');
         }
     }
 })
