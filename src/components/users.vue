@@ -56,7 +56,7 @@
                     </thead>
                     <tbody>
                         <tr
-                        v-for="(item, index) in names"  
+                        v-for="(item, index) in usersFromStorage"  
                         :key="item"
                         :index="index"
                         >
@@ -80,7 +80,8 @@ import json from '@/json/data.json'
 export default ({
     data(){
         return{
-            names: [],
+            usersFromJson: [],
+            usersFromStorage: [],
             addButtonText: 'Add',
             deleteButtonText: 'Delete',
             first: '',
@@ -97,26 +98,62 @@ export default ({
             let firstName = this.first;
             let lastName = this.last;
 
-            this.names.push({ 
+            this.usersFromStorage.push({ 
                 firstName: firstName,
                 lastName: lastName, 
             });
 
             this.first = '';
             this.last = '';
+
+            let usersAsString = JSON.stringify(this.usersFromStorage);
+            localStorage.setItem('users',usersAsString);
         },
         Delete: function(id) {
-            this.names.splice(id, 1);
+            this.usersFromStorage.splice(id, 1);
+            let usersAsString = JSON.stringify(this.usersFromStorage);
+            localStorage.setItem('users',usersAsString);
         },
+        getUsersFromJson(){
+            let arr = this.myJson;
+            for(let i = 0; i < arr.length; i++){
+                this.usersFromJson.push({ 
+                    firstName: arr[i].firstName,
+                    lastName: arr[i].lastName, 
+                });
+            }
+        }
     },
     created() {
-        let arr = this.myJson;
-        for(let i = 0; i < arr.length; i++){
-            this.names.push({ 
-                firstName: arr[i].firstName,
-                lastName: arr[i].lastName, 
-            });
+        
+        this.getUsersFromJson();
+        if(localStorage.length == 0){
+            let usersAsString = JSON.stringify(this.usersFromJson);
+            localStorage.setItem('users',usersAsString);
+            let localStorageData = localStorage.getItem('users');
+            let array = JSON.parse(localStorageData);
+            for(let i = 0; i < array.length; i++){
+                this.usersFromStorage.push({
+                    firstName: array[i].firstName,
+                    lastName: array[i].lastName,
+                });
+            }
+        }else{
+            let localStorageData = localStorage.getItem('users');
+            let array = JSON.parse(localStorageData);
+            console.log(array);
+            for(let i = 0; i < array.length; i++){
+                this.usersFromStorage.push({
+                    firstName: array[i].firstName,
+                    lastName: array[i].lastName,
+                });
+            }
         }
+
+       
+
+        
+    
     }
 })
 </script>
