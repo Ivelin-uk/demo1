@@ -54,6 +54,7 @@
           { title: 'Home', icon: 'mdi-view-dashboard',route: '/' },
           { title: 'Patients', icon: 'mdi-image', route: '/patients' },
           { title: 'Storage', icon: 'mdi-help-box', route: '/storage' },
+          { title: 'GraphQL', icon: 'mdi-help-box', route: '/graphQL' },
         ],
         right: null,
         drawer: null

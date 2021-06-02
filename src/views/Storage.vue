@@ -1,8 +1,17 @@
 <template>
-  <div class="about">
-      <p>Storage</p>
+  <div class="storage">
+      <storage/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
+import storage from '@/components/storage.vue'
+
+export default {
+  name: 'Storage',
+  components: {
+    storage
+  }
+}
+</script>
