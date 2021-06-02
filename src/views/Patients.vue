@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="conteiner">
     <patientsTable/>
   </div>
 </template>
@@ -9,9 +9,16 @@
 import patientsTable from '@/components/patientsTable.vue'
 
 export default {
-  name: 'Home',
+  name: 'PatientsTable',
   components: {
     patientsTable,
   }
 }
 </script>
+
+<style>
+    .conteiner{
+      width: 80%;
+      margin: auto;
+    }
+</style>

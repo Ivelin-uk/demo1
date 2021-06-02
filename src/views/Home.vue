@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="conteiner">
     <home/>
   </div>
 </template>
@@ -15,3 +15,10 @@ export default {
   }
 }
 </script>
+
+<style>
+    .conteiner{
+      width: 80%;
+      margin: auto;
+    }
+</style>
