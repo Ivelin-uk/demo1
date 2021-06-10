@@ -7,6 +7,7 @@
 </template>
 
 <script>
+
 export default ({
     props:[
         'btnText',
@@ -17,4 +18,5 @@ export default ({
         }
     }
 })
+
 </script>

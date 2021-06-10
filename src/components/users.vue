@@ -1,8 +1,7 @@
 <template>
     <div>
         <div>
-            <h1>Users</h1>
-            <add-button v-on:add="Add" :btn-text="addButtonText"></add-button>   
+            <h1>Users</h1>  
         </div>
 
         <div>
@@ -12,7 +11,7 @@
                     <v-row>
                         <v-col
                         cols="12"
-                        sm="6"
+                        sm="4"
                         >
                         <v-text-field
                             v-model="first"
@@ -23,13 +22,20 @@
 
                         <v-col
                         cols="12"
-                        sm="6"
+                        sm="4"
                         >
                         <v-text-field
                             v-model="last"
                             label="Last Name"
                             outlined
                         ></v-text-field>
+                        </v-col>
+
+                        <v-col
+                        cols="12"
+                        sm="4"
+                        >
+                        <add-button class="addBt" v-on:add="Add" :btn-text="addButtonText"></add-button> 
                         </v-col>
                     </v-row>
                     </v-container>
@@ -149,11 +155,6 @@ export default ({
                 });
             }
         }
-
-       
-
-        
-    
     }
 })
 </script>
