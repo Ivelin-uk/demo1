@@ -138,6 +138,7 @@ import gql from "graphql-tag"
         { text: 'Actions', value: 'actions'},
       ],
       patients: [],
+      desserts: [],
       editedIndex: -1,
       editedItem: {
         first_name: '',
@@ -157,7 +158,7 @@ import gql from "graphql-tag"
                         id
                         first_name
                         city
-                    }
+                  }
                 }`
             },
             update(data) {
@@ -185,20 +186,19 @@ import gql from "graphql-tag"
       
       editItem (item) {
         console.log(item);
-        this.editedIndex = this.desserts.indexOf(item)
-        console.log(this.editedIndex);
+        this.editedIndex = this.patients.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialog = true
       },
 
       deleteItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
+        this.editedIndex = this.patients.indexOf(item)
         this.editedItem = Object.assign({}, item)
         this.dialogDelete = true
       },
 
       deleteItemConfirm () {
-        this.desserts.splice(this.editedIndex, 1)
+        this.patients.splice(this.editedIndex, 1)
         this.closeDelete()
       },
 
@@ -235,6 +235,7 @@ import gql from "graphql-tag"
         })
         
         this.$apollo.queries.patients.refetch();
+
         this.close()
       },
     },
