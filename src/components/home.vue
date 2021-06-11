@@ -1,5 +1,5 @@
 <template>
     <div>
-        <app-users></app-users>
+        <h1>Home page</h1>
     </div>
 </template>

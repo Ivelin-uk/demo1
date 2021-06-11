@@ -62,3 +62,10 @@
     },
   }
 </script>
+
+<style>
+    .conteiner{
+      width: 80%;
+      margin: auto;
+    }
+</style>

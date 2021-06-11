@@ -1,3 +1,5 @@
 <template>
-    <h1>Storage</h1>
+    <div>
+        <app-users></app-users>
+    </div>
 </template>
